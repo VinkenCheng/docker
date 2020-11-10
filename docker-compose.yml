@@ -1,0 +1,13 @@
+# version.20201021
+
+version: '3'
+
+services:
+  aria:
+    container_name: aria
+    build: .
+    restart: always
+    expose:
+      - "80"
+    volumes:
+      - ../config/aria:/etc/nginx/conf.d
