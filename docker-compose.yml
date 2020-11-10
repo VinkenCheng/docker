@@ -1,0 +1,15 @@
+# version.20201021
+
+version: '3'
+
+services:
+  frp_server:
+    container_name: frp_server
+    build: .
+    restart: always
+    ports:
+      - "6500:6500"
+    environment:
+      - VERSION=0.20.0
+    volumes:
+      - ../config/frps:/config
