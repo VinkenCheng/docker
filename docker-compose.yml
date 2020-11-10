@@ -1,0 +1,19 @@
+# version.20201021
+
+version: '3'
+
+services:
+  obfs:
+    container_name: obfs
+    build: .
+    ports:
+      - "80:8139"
+    environment:
+      - OBFS_OPTS=http
+      - FORWARD=shadowsocks:8388
+      - FAILOVER=nginx:80
+      # - ARGS=--mptcp
+    depends_on:
+      - shadowsocks
+      - nginx
+    restart: always
