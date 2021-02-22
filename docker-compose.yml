@@ -1,0 +1,15 @@
+# version.20210222
+
+version: '3'
+
+services:
+  snell:
+    container_name: snell
+    build: .
+    restart: always
+    ports:
+      - "6543:6543"
+    environment:
+      - VERSION=2.0.3
+    volumes:
+      - ./config:/config
